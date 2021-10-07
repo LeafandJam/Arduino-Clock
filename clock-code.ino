@@ -10,10 +10,10 @@ Adafruit_PWMServoDriver pwmM = Adafruit_PWMServoDriver(0x41);    //Create an obj
 
 int servoFrequency = 50;      //Set servo operating frequency
 
-int segmentHOn[14] = {385,375,385,375,382,375,354,367,375,385,375,368,371,375};   //On positions for each Hour servo
-int segmentMOn[14] = {382,395,378,315,375,340,345,380,385,365,290,365,315,365};   //On positions for each Minute servo
-int segmentHOff[14] = {200,200,550,480,200,520,200,200,200,480,550,200,515,200};    //Off positions for each Hour servo
-int segmentMOff[14] = {200,200,550,440,200,480,200,200,200,550,450,200,430,200};    //Off positions for each Minute servo
+int segmentHOn[14] = {290,375,375,375,300,270,550,500,385,375,350,290,300,310};   //On positions for each Hour servo
+int segmentMOn[14] = {270,395,378,340,305,270,310,550,385,365,290,365,315,365};   //On positions for each Minute servo
+int segmentHOff[14] = {550,200,200,190,550,520,550,550,190,190,190,570,520,560};    //Off positions for each Hour servo
+int segmentMOff[14] = {550,200,200,150,650,480,550,550,200,550,450,200,430,200};    //Off positions for each Minute servo
 int digits[10][7] = {{1,1,1,1,1,1,0},{0,1,1,0,0,0,0},{1,1,0,1,1,0,1},{1,1,1,1,0,0,1},{0,1,1,0,0,1,1},
                      {1,0,1,1,0,1,1},{1,0,1,1,1,1,1},{1,1,1,0,0,0,0},{1,1,1,1,1,1,1},{1,1,1,1,0,1,1}};    //Position values for each digit
 
@@ -38,7 +38,8 @@ void setup()
   pwmM.setOscillatorFrequency(27000000);
   pwmH.setPWMFreq(servoFrequency);          //Set the servo operating frequency
   pwmM.setPWMFreq(servoFrequency);
-  //myRTC.setDS1302Time(00, 10, 16, 5, 8, 4, 2020);        //Only required once to reset the clock time
+  myRTC.setDS1302Time(00, 41, 2, 4, 7, 10, 2021);   //FORMAT: seconds, minutes, hours, day of the week, day of the month, month, year     //Only required once to reset the clock time
+  
   for(int i=0 ; i<=13 ; i++)    //Set all of the servos to on or up (88:88 displayed)
   {
     pwmH.setPWM(i, 0, segmentHOn[i]);
