@@ -1,4 +1,5 @@
 //Michael Klements
+//Adapted by Liam B
 //The DIY Life
 //8 February 2020
 
@@ -38,7 +39,7 @@ void setup()
   pwmM.setOscillatorFrequency(27000000);
   pwmH.setPWMFreq(servoFrequency);          //Set the servo operating frequency
   pwmM.setPWMFreq(servoFrequency);
-  myRTC.setDS1302Time(00, 11, 12, 4, 7, 10, 2021);   //FORMAT: seconds, minutes, hours, day of the week, day of the month, month, year     //Only required once to reset the clock time
+ // myRTC.setDS1302Time(00, 11, 12, 4, 7, 10, 2021);   //FORMAT: seconds, minutes, hours, day of the week, day of the month, month, year     //Only required once to reset the clock time
   
   for(int i=0 ; i<=13 ; i++)    //Set all of the servos to on or up (88:88 displayed)
   {
